@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <THEEmployees xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Employee name="John Doe">
-    <email>jdoe@email.com</email>
+  <Employee name="yassine maleh">
+    <email>yassine maleh</email>
     <jobtitle>Software Engineer</jobtitle>
     <address>San Bernardino, CA</address>
     <workphone>555-555-1212</workphone>
