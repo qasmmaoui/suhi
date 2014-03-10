@@ -11,6 +11,7 @@ my sushi app
 </description>
 <icon src="icons/hdpi/icon.png" />
 <gap:splash src="icons/hdpi/Loading.png" />
+<plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
 
 <author href="https://example.com" email="you@example.com">
 qasmaoui Youssef
