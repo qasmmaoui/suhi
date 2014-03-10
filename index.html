@@ -69,7 +69,7 @@
 		<h1>Youssef positon</h1>
 	</div>
 	
-	<a href="geo:37.786971,-122.399677;u=35">Wikimedia Headquarters</a>
+	<a href="geo:33.960227,-6.867749;u=35">soushi BOX</a>
 	<div data-role="footer" data-position="fixed">
 		<div data-role="navbar">
       <ul>
@@ -88,46 +88,7 @@
 		<h1>Youssef positon</h1>
 	</div>
 	<div data-role="content">
-	<script type="text/javascript">
-    var xml;
-    $(document).ready(function(){
-        $.ajax({
-            type: "GET",
-            url: "Menu.xml",
-            dataType: "xml",
-            success: xmlParser
-        });
-    });
-        //loading XML file and parsing to .main div.
-        function xmlParser(data) {
-            xml = data;
-
-            $('#load').fadeOut();
-
-            $(xml).find("Employee").each(function () {
-                name = $(this).attr("name");
-                var email = $(this).find("email").text();
-                var jobtitle = $(this).find("jobtitle").text();
-                var address = $(this).find("address").text();
-                var workphone = $(this).find("workphone").text();
-                var homephone = $(this).find("homephone").text();
-                var cellphone = $(this).find("cellphone").text();
-                var fax = $(this).find("fax").text();
-
-                $("#list").append('<li><h3 id="name">' + name + '</h3><ul><li>Email: '+ email + '</li><li>Job Title: '+ jobtitle + '</li><li>Address: '+ address + '</li><li>Work Phone: '+ workphone + '</li><li>Home Phone: '+ homephone + '</li><li>Cell Phone: '+ cellphone + '</li><li>Fax: '+ fax + '</li></ul></li>');
-
-                $('#list').listview('refresh'); 
-            });
-        }
-
-</script>
-	<div class="content-primary">
-      <ul id="list" data-role="listview" data-theme="a" data-filter="true">
-      <li id="load">Loading Data...</li>
-      </ul>
-      <ul id="results" data-role="listview" data-theme="b">
-      </ul>
-    </div>
+	
 	
 	</div>
 	<div data-role="footer" data-position="fixed">
