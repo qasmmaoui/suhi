@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>youssef Sushi</title>
+<title>SushiStore </title>
 <link href="css/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
 <script src="jquery-1.6.4.min.js" type="text/javascript"></script>
 <script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
@@ -14,8 +14,9 @@
 </head> 
 <body> 
 
-<div data-role="page" id="page">
+<div data-role="page" id="carte" data-add-back-btn="true">
 	<div data-role="header">
+  
 		<h1>Youssef Sushi V1.0</h1>
 	</div>
 	<div data-role="content">	
@@ -56,8 +57,8 @@
 	<div  data-role="footer" data-position="fixed">
 		<div data-role="navbar">
       <ul>
-        <li><a href="#">A la carte</a></li>
-        <li><a href="#">Creations</a></li>
+        <li><a href="#carte">A la carte</a></li>
+        <li><a href="#Creations">Creations</a></li>
         <li><a href="#">Promo</a></li>
          <li><a href="#location">Nous connaitre</a></li>
       </ul>
@@ -66,6 +67,7 @@
 	</div>
     <div data-role="page" id="location">
 	<div data-role="header">
+     <a href="index.html" data-icon="back">Back</a>
 		<h1>Youssef positon</h1>
 	</div>
 	<div data-role="content">	
@@ -108,7 +110,67 @@
 	<div data-role="footer" data-position="fixed">
 		<div data-role="navbar">
       <ul>
-        <li><a href="#">A la carte</a></li>
+        <li><a href="#carte">A la carte</a></li>
+        <li><a href="#">Creations</a></li>
+        <li><a href="#">Promo</a></li>
+         <li><a href="#location">Nous connaitre</a></li>
+      </ul>
+    </div>
+	</div>
+</div>
+
+<div data-role="page" id="Creations">
+	<div data-role="header">
+     <a href="index.html" data-icon="back">Back</a>
+		<h1>Youssef positon</h1>
+	</div>
+	<div data-role="content">
+	<script type="text/javascript">
+    var xml;
+    $(document).ready(function(){
+        $.ajax({
+            type: "GET",
+            url: "Menu.xml",
+            dataType: "xml",
+            success: xmlParser
+        });
+    });
+        //loading XML file and parsing to .main div.
+        function xmlParser(data) {
+            xml = data;
+
+            $('#load').fadeOut();
+
+            $(xml).find("Employee").each(function () {
+                name = $(this).attr("name");
+                var email = $(this).find("email").text();
+                var jobtitle = $(this).find("jobtitle").text();
+                var address = $(this).find("address").text();
+                var workphone = $(this).find("workphone").text();
+                var homephone = $(this).find("homephone").text();
+                var cellphone = $(this).find("cellphone").text();
+                var fax = $(this).find("fax").text();
+
+                $("#list").append('<li><h3 id="name">' + name + '</h3><ul><li>Email: '+ email + '</li><li>Job Title: '+ jobtitle + '</li><li>Address: '+ address + '</li><li>Work Phone: '+ workphone + '</li><li>Home Phone: '+ homephone + '</li><li>Cell Phone: '+ cellphone + '</li><li>Fax: '+ fax + '</li></ul></li>');
+
+                $('#list').listview('refresh'); 
+            });
+        }
+
+</script>
+	<div class="content-primary">
+      <ul id="list" data-role="listview" data-theme="a" data-filter="true">
+      <li id="load">Loading Data...</li>
+      </ul>
+      <ul id="results" data-role="listview" data-theme="b">
+      </ul>
+    </div>
+	
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+      <ul>
+        <li><a href="#carte">A la carte</a></li>
         <li><a href="#">Creations</a></li>
         <li><a href="#">Promo</a></li>
          <li><a href="#location">Nous connaitre</a></li>
